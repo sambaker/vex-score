@@ -1,0 +1,35 @@
+<template id="wrapper">
+    <h2>This is a custom element</h2>
+    <canvas>
+    </canvas>
+</template>>
+<script>
+
+(function() {
+    var ownerDocument = document.currentScript.ownerDocument;
+
+    // Creates an object based in the HTML Element prototype
+    var element = Object.create(HTMLElement.prototype);
+
+    // Fires when an instance of the element is created
+    element.createdCallback = function() {
+        var template = ownerDocument.querySelector("#wrapper");
+        var el = template.content.cloneNode(true);
+        this.shadow = this.createShadowRoot();
+        this.shadow.appendChild(el);
+    };
+
+    // Fires when an instance was inserted into the document
+    element.attachedCallback = function() {};
+
+    // Fires when an instance was removed from the document
+    element.detachedCallback = function() {};
+
+    // Fires when an attribute was added, removed, or updated
+    element.attributeChangedCallback = function(attr, oldVal, newVal) {};
+
+    document.registerElement('vex-score', {
+        prototype: element
+    });
+}());
+</script>
