@@ -1,0 +1,19 @@
+{
+  "name": "vex-score",
+  "version": "0.0.0",
+  "description": "Music score rendering web component, using vexflow library",
+  "license": "MIT",
+  "main": "src/vex-score.html",
+  "keywords": [
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "^0.5.1",
+    "vexflow": "~1.2.26"
+  }
+}
