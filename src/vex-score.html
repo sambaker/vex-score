@@ -3,9 +3,13 @@
     <p>
         A music score canvas will appear here. You'll be able to render notes and there'll be some kind of editing features.
     </p>
-    <canvas>
+    <canvas id="canvas">
     </canvas>
 </template>>
+
+<script src="../bower_components/vexflow/releases/vexflow-debug.js"></script>
+<script src="vex-score.js"></script>
+
 <script>
 
 (function() {
@@ -18,6 +22,9 @@
     element.createdCallback = function() {
         var template = ownerDocument.querySelector("#wrapper");
         var el = template.content.cloneNode(true);
+
+        vexInit(el.querySelector("#canvas"));
+
         this.shadow = this.createShadowRoot();
         this.shadow.appendChild(el);
     };
